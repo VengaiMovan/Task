@@ -47,8 +47,6 @@ dev_dependencies:
   flutter_lints: ^1.0.0
   geolocator: ^8.0.1
   flutter_local_notifications: ^9.1.5
-  background_locator: ^1.6.6
-  path_provider: ^2.0.1
   background_location: ^0.8.1
   permission_handler: ^8.3.0
 
