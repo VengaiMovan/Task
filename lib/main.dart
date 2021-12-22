@@ -56,22 +56,17 @@ class _MainCollapsingToolbarState extends State<MainCollapsingToolbar> {
     flutterLocalNotificationsPlugin.initialize(initSetttings);
 
     // Get current location every 1min and show it on notification.
-    timer = Timer.periodic(Duration(seconds: 60), (Timer t) async {
+    timer = Timer.periodic(Duration(seconds: 6), (Timer t) async {
 
-      //await BackgroundLocation.setAndroidConfiguration(1000);
+      await BackgroundLocation.setAndroidConfiguration(1000);
       await BackgroundLocation.startLocationService(
           distanceFilter: 20);
 
 
-      //await BackgroundLocation.setAndroidConfiguration(1000);
-      await BackgroundLocation.startLocationService(
-          distanceFilter: 20);
-      BackgroundLocation.getLocationUpdates((location) async {
-        var position = await GeolocatorPlatform.instance.getCurrentPosition();
-        setState(() {
-          lat = position.latitude;
-          lon = position.longitude;
-        });
+      var position = await GeolocatorPlatform.instance.getCurrentPosition();
+      setState(() {
+        lat = position.latitude;
+        lon = position.longitude;
       });
 
       // //Show notification
